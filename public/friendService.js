@@ -10,4 +10,7 @@ angular.module('userProfiles')
     	return $http.get('/api/profiles')
     };
   
+    this.addFriend = function(friend){
+      return $http.post('/api/addfriend', friend)
+    }
 });

@@ -20,10 +20,8 @@ var profiles = [
       status: 'OMG MITTENS DID THE CUTEST THING TODAY'
     }
   ];
-
+  const myFriends = [];
   const getFriendsProfiles = (req, res, next) => {
-      const myFriends = [];
-      console.log(req.session.currentUser)
       for(var i = 0; i < req.session.currentUser.friends.length; i++){
           myFriends.push(profiles.find(profile => profile.name === req.session.currentUser.friends[i]))
       }
@@ -34,6 +32,20 @@ var profiles = [
       })
   };
 
+  const addFriend = (req, res, next) => {
+    if(!myFriends.includes(req.body.name)){
+      myFriends.push(profiles.find(profile => profile.name === req.body.name));
+      res.json(myFriends);
+    }
+    else{console.log("@ profile ctrl and not working")}
+  };
+
+  const deleteFriend = (req, res, next) => {
+
+  };
+
   module.exports = {
       profiles,
-      getFriendsProfiles}
+      getFriendsProfiles,
+      deleteFriend,
+      addFriend}

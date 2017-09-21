@@ -33,6 +33,8 @@ const userCtrl = require('./controllers/userCtrl')
 //endpoints
 app.post('/api/login', userCtrl.login);
 app.get('/api/profiles', profileCtrl.getFriendsProfiles);
+app.post('/api/addfriend', profileCtrl.addFriend);
+app.delete('/api/deletefriend', profileCtrl.deleteFriend);
 
 
 

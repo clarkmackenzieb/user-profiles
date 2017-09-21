@@ -15,8 +15,12 @@
       <ul>
         <li class="bolded">{{ currentUser.name }}</li>
       </ul>
+      <input type="text" ng-model="friendName">
+      <button class="btn btn-primary" ng-click="addAFriend()">Add Friend</button>
     </div>  
-
+    <div>
+      
+    </div>
 
     <div class="friends">
       <ul ng-repeat="friend in friends">

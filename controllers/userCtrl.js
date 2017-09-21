@@ -22,13 +22,13 @@ var users = [
   ];
 
   const login = (req, res, next) => {
-    console.log(req.body.name, req.body.password)
+
     if(req.body.name && req.body.password){  
     for(var i = 0; i < users.length; i++){
         if(users[i].name === req.body.name && users[i].password === req.body.password){
             req.session.currentUser = users[i];
             
-            console.log("AHHHHHH")
+
             return res.json({userFound: true});
         }
     }  
